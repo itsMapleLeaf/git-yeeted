@@ -33,9 +33,9 @@ Remix exposes APIs for integrating Vite with a custom server:
 
 ```ts
 import {
-  unstable_createViteServer,
-  unstable_loadViteServerBuild,
-} from "@remix-run/dev";
+	unstable_createViteServer,
+	unstable_loadViteServerBuild,
+} from "@remix-run/dev"
 ```
 
 In this template, we'll use Express but remember that these APIs can be used with _any_ Node-compatible server setup that supports standard middleware.
