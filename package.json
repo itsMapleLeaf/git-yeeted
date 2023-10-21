@@ -1,0 +1,36 @@
+{
+  "name": "git-yeeted",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "vite build && vite build --ssr",
+    "dev": "vite dev",
+    "dev:express": "node ./server.mjs",
+    "start": "remix-serve ./build/index.js",
+    "start:express": "NODE_ENV=production node ./server.mjs",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@remix-run/css-bundle": "0.0.0-experimental-5603af8a3",
+    "@remix-run/node": "0.0.0-experimental-5603af8a3",
+    "@remix-run/react": "0.0.0-experimental-5603af8a3",
+    "@remix-run/serve": "0.0.0-experimental-5603af8a3",
+    "isbot": "^3.6.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "0.0.0-experimental-5603af8a3",
+    "@remix-run/eslint-config": "0.0.0-experimental-5603af8a3",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "eslint": "^8.38.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.5.0",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
