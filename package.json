@@ -4,19 +4,22 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "vite build && vite build --ssr",
     "dev": "vite dev",
+    "build": "vite build && vite build --ssr",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc -b",
     "lint": "eslint . --cache --cache-file=node_modules/.cache/.eslintcache",
     "format": "prettier . --cache --write"
   },
   "dependencies": {
+    "@octokit/core": "^5.0.1",
     "@remix-run/node": "0.0.0-experimental-5603af8a3",
     "@remix-run/react": "0.0.0-experimental-5603af8a3",
     "isbot": "^3.6.8",
+    "lucide-react": "^0.288.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-virtuoso": "^4.6.2"
   },
   "devDependencies": {
     "@itsmapleleaf/configs": "github:itsMapleLeaf/configs",
@@ -24,8 +27,11 @@
     "@remix-run/serve": "0.0.0-experimental-5603af8a3",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
     "vite": "^4.5.0",
     "vite-tsconfig-paths": "^4.2.1"
