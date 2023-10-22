@@ -15,6 +15,7 @@
     "@octokit/core": "^5.0.1",
     "@remix-run/node": "^2.1.0",
     "@remix-run/react": "^2.1.0",
+    "date-fns": "^2.30.0",
     "isbot": "^3.6.8",
     "lucide-react": "^0.288.0",
     "react": "^18.2.0",
