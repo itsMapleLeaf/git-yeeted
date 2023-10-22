@@ -7,7 +7,7 @@ import {
 	Scripts,
 	ScrollRestoration,
 } from "@remix-run/react"
-import tailwindCss from "tailwindcss/tailwind.css?url"
+import tailwind from "tailwindcss/tailwind.css"
 
 export const meta: MetaFunction = () => {
 	return [
@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => {
 }
 
 export const links: LinksFunction = () => [
-	{ rel: "stylesheet", href: tailwindCss },
+	{ rel: "stylesheet", href: tailwind },
 ]
 
 export default function App() {
