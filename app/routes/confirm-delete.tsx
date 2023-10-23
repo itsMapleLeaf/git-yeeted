@@ -43,7 +43,9 @@ export async function action({ request }: ActionFunctionArgs) {
 					repo,
 				})
 			} catch (error) {
-				return error instanceof Error ? error.message : String(error)
+				return error instanceof Error
+					? `${repoFullName} - ${error.message}`
+					: String(error)
 			}
 		}),
 	)
