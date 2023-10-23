@@ -43,6 +43,9 @@ devDependencies:
   '@remix-run/serve':
     specifier: ^2.1.0
     version: 2.1.0(typescript@5.2.2)
+  '@total-typescript/ts-reset':
+    specifier: ^0.5.1
+    version: 0.5.1
   '@types/react':
     specifier: ^18.2.20
     version: 18.2.31
@@ -1320,6 +1323,10 @@ packages:
       tailwindcss: '>=3.2.0'
     dependencies:
       tailwindcss: 3.3.3
+    dev: true
+
+  /@total-typescript/ts-reset@0.5.1:
+    resolution: {integrity: sha512-AqlrT8YA1o7Ff5wPfMOL0pvL+1X+sw60NN6CcOCqs658emD6RfiXhF7Gu9QcfKBH7ELY2nInLhKSCWVoNL70MQ==}
     dev: true
 
   /@types/acorn@4.0.6:
