@@ -25,14 +25,13 @@ export async function action({ request }: ActionFunctionArgs) {
 	}
 
 	const repos = new URL(request.url).searchParams.get("repos")?.split(",")
-	console.log(repos)
 	if (!repos?.length) {
 		return redirect("/select-repos")
 	}
 
 	const octokit = new Octokit({ auth: token })
 
-	const results = await Promise.allSettled(
+	const results = await Promise.all(
 		repos.map(async (repoFullName) => {
 			try {
 				const [owner, repo] = repoFullName.split("/")
@@ -44,39 +43,17 @@ export async function action({ request }: ActionFunctionArgs) {
 					repo,
 				})
 			} catch (error) {
-				throw new DeletionError(repoFullName, { cause: error })
+				return error instanceof Error ? error.message : String(error)
 			}
 		}),
 	)
 
-	const errors = results.flatMap((result) => {
-		if (result.status !== "rejected") return []
-
-		if (result.reason instanceof DeletionError) {
-			const message =
-				result.reason.cause instanceof Error
-					? result.reason.cause.message
-					: String(result.reason.cause)
-			return [`Failed to delete repo "${result.reason.repo}": ${message}`]
-		}
-
-		return [String(result.reason)]
-	})
-
+	const errors = results.filter(Boolean)
 	if (errors.length > 0) {
 		return json({ errors })
 	}
 
 	return redirect("/select-repos")
-}
-
-class DeletionError extends Error {
-	readonly repo: string
-
-	constructor(repo: string, options?: ErrorOptions) {
-		super(`Failed to delete repo "${repo}"`, options)
-		this.repo = repo
-	}
 }
 
 export default function ConfirmDeletePage() {
